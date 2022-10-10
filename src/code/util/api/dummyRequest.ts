@@ -21,7 +21,13 @@ export class DummyRequest implements IRequest {
   }
 
   get(url: string, options?: any): Observable<any> {
-    return this.http.get(url, {withCredentials: true}).pipe(
+    options = options || {};
+
+    options.withCredentials = true;
+    options.headers = {
+      "Access-Control-Allow-Origin": "http://localhost:8000"
+    };
+    return this.http.get(url, options).pipe(
       tap((data: any) => console.log('posted ok!')),
       catchError(this.handleError<any>('post'))
     );
