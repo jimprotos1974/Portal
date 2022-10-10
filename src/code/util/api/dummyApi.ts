@@ -8,7 +8,7 @@ import { IApi } from './iApi';
 
 export class DummyApi implements IApi{
   caller: DummyRequest;
-  url: string = 'http://dummyjson.com';
+  url: string = 'https://dummyjson.com';
 
   private normalizedEntities: any = {};
 
