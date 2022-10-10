@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div *ngIf="!cookie" style="width:100%;height:100%;padding:10px;">
+  <form [formGroup]="fb">
+    <br />
+    <label for="username">UserName</label><br />
+    <input formControlName="username" type="text" id="username" />
+    <br /><br />
+    <label for="password">Password</label><br />
+    <input formControlName="password" type="text" id="password" />
+    <br /><br />
+    <button (click)="login()">Login</button>
+  </form>
+</div>
+
+<table *ngIf="cookie" style="width:100%;height:100%;">
+  <tr>
+    <td style="width:30%">
+      <app-menu (select)="selectMenuItem($event)"></app-menu>
+    </td>
+    <td style="width:70%">
+      <app-content [task]="task"></app-content>
+    </td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

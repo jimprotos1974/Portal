@@ -1,0 +1,9 @@
+<div style="height:100%;background-color:#dbd2ca;padding:5px;">
+  <div *ngFor="let item of menuItems"
+    style="background-color:orange;color:#ffffff;padding:5px;margin:5px;cursor:pointer;"
+  >
+    <a style="color:#ffffff;" routerLink="/{{ item.value }}">
+      {{ item.text }}
+    </a>
+  </div>
+</div>

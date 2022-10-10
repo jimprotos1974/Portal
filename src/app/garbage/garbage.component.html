@@ -1,0 +1,64 @@
+<div class="hidden" id="correlated">
+  <form  [formGroup]="fb">
+<table style="width:100%;">
+  <tr>
+    <td style="width:50%;background-color:#e9d5be">
+      <div style="padding:10px;">
+        <label for="salaryMonths">Salary Months<span *ngIf="a['salaryMonths']" [title]="a['salaryMonths']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="salaryMonths" [title]="v['salaryMonths']?.title || ''" [style.background-color]="v['salaryMonths']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="monthlySalaryIncome">Monthly Salary Income <span *ngIf="a['monthlySalaryIncome']" [title]="a['monthlySalaryIncome']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="monthlySalaryIncome" [title]="v['monthlySalaryIncome']?.title || ''" [style.background-color]="v['monthlySalaryIncome']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="yearlySalaryIncome">Yearly Salary Income <span *ngIf="a['yearlySalaryIncome']" [title]="a['yearlySalaryIncome']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input readonly="readonly" type="number" formControlName="yearlySalaryIncome" [title]="v['yearlySalaryIncome']?.title || ''" [style.background-color]="v['yearlySalaryIncome']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="otherIncome">Other <span *ngIf="a['otherIncome']" [title]="a['otherIncome']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="otherIncome" [title]="v['otherIncome']?.title || ''" [style.background-color]="v['otherIncome']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="depositIncome">Deposit <span *ngIf="a['depositIncome']" [title]="a['depositIncome']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="depositIncome" [title]="v['depositIncome']?.title || ''" [style.background-color]="v['depositIncome']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="totalIncome">Total <span *ngIf="a['totalIncome']" [title]="a['totalIncome']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input readonly="readonly" type="number" [title]="v['totalIncome']?.title || ''" formControlName="totalIncome" [style.background-color]="v['totalIncome']?.color || '#ffffff'">
+        <br>
+        <br>
+      </div>
+    </td>
+    <td style="width:50%;background-color:#fbd8d8;">
+      <div style="padding:10px;">
+        <label for="householdExpenses">Household Expenses <span *ngIf="a['householdExpenses']" [title]="a['householdExpenses']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="householdExpenses" [title]="v['householdExpenses']?.title || ''" [style.background-color]="v['householdExpenses']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="personalExpenses">Personal Expenses <span *ngIf="a['personalExpenses']" [title]="a['personalExpenses']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="personalExpenses" [title]="v['personalExpenses']?.title || ''" [style.background-color]="v['personalExpenses']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="fixedExpenses">Fixed Expenses <span *ngIf="a['fixedExpenses']" [title]="a['fixedExpenses']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="fixedExpenses" [title]="v['fixedExpenses']?.title || ''" [style.background-color]="v['fixedExpenses']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="taxesExpenses">Expenses on Taxes <span *ngIf="a['taxesExpenses']" [title]="a['taxesExpenses']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="taxesExpenses" [title]="v['taxesExpenses']?.title || ''" [style.background-color]="v['taxesExpenses']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="depositExpenses">Deposit <span *ngIf="a['depositExpenses']" [title]="a['depositExpenses']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input type="number" formControlName="depositExpenses" [title]="v['depositExpenses']?.title || ''" [style.background-color]="v['depositExpenses']?.color || '#ffffff'">
+        <br>
+        <br>
+        <label for="totalExpenses">Total <span *ngIf="a['totalExpenses']" [title]="a['totalExpenses']?.title || ''" class="field-info hidden"> [i]</span>:</label><br>
+        <input readonly="readonly" type="number" formControlName="totalExpenses" [title]="v['totalExpenses']?.title || ''" [style.background-color]="v['totalExpenses']?.color || '#ffffff'">
+        <br>
+        <br>
+      </div>
+    </td>
+  </tr>
+</table>
+  </form>
+</div>

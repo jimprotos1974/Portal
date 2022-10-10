@@ -1,0 +1,32 @@
+<div *ngIf="company">
+<h2>{{company.name | uppercase}} Details</h2>
+
+<div>
+  <label for="id">ID: </label><br>
+  <input id="id" [(ngModel)]="company.id" placeholder="ID"/>
+</div>
+<div>
+  <label for="name">Name: </label><br>
+  <input id="name" [(ngModel)]="company.name" placeholder="Name"/>
+</div>
+<div>
+  <label for="code">Code: </label><br>
+  <input id="code" [(ngModel)]="company.code" placeholder="Code"/>
+</div>
+<div>
+  <label for="city">City: </label><br>
+  <input id="city" [(ngModel)]="company.city" placeholder="City"/>
+</div>
+<div>
+  <label for="city">City: </label><br>
+  <input id="city" [(ngModel)]="company.city" placeholder="City"/>
+</div>
+<div>
+  <label for="address">Address: </label><br>
+  <input id="address" [(ngModel)]="company.address" placeholder="Address"/>
+</div>
+<div>
+  <label for="phoneNumbers">Phone Numbers: </label><br>
+  <input id="phoneNumbers" [(ngModel)]="company.phoneNumbers" placeholder="Phone Numbers"/>
+</div>
+</div>
