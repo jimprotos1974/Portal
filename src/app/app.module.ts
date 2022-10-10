@@ -16,6 +16,7 @@ import { CompanyDetailComponent } from './company-detail/company-detail.componen
 import { VesselComponent } from './vessel/vessel.component';
 import { VesselDetailComponent } from './vessel-detail/vessel-detail.component';
 import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { ProductComponent } from './product/product.component';
     VesselComponent,
     VesselDetailComponent,
     ProductComponent,
+    ProductDetailComponent,
   ],
   bootstrap: [AppComponent],
 })

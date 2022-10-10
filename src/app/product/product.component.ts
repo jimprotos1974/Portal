@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
     let entity = new ProductEntity(this.dummyApi);
 
     entity.browse().subscribe((response) => {
-      this.listOfProducts = Model.convertList(response, ProductModel);
+      this.listOfProducts = Model.convertList(response.products, ProductModel);
     });
   }
 

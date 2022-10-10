@@ -1,9 +1,9 @@
 import { IApi } from './iApi';
 import { Observable } from 'rxjs';
-import { Live } from './live';
+import { LiveApi } from './liveApi';
 
 export class Company {
-  constructor(private api: Live) {
+  constructor(private api: LiveApi) {
     this.api = api;
   }
 

@@ -5,20 +5,21 @@ import { FormBuilder } from '@angular/forms';
 
 import { Authorize } from '../code/util/api/authorize';
 
-import { Live } from '../code/util/api/live';
+import { LiveApi } from '../code/util/api/liveApi';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent {
   task: MenuItem | undefined;
   cookie: string | undefined | null;
 
   fb: any;
 
-  constructor(private formBuilder: FormBuilder, private live: Live) {
+  constructor(private formBuilder: FormBuilder, private liveApi: LiveApi) {
     let me = this;
 
     this.fb = this.formBuilder.group({
@@ -39,7 +40,7 @@ export class AppComponent {
     let userName = this.fb.get('username').value,
       password = this.fb.get('password').value;
 
-    let a = new Authorize(this.live);;
+    let a = new Authorize(this.liveApi);
 
     a.login(userName, password).subscribe((response) => {
       console.log(response);

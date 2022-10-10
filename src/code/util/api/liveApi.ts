@@ -1,23 +1,14 @@
 import { Injectable } from '@angular/core';
 import { LiveRequest } from './liveRequest';
-import { IApi } from './iApi';
+import { Api } from './api';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class Live implements IApi{
-  caller: LiveRequest;
-  url: string = 'https://portal.capitalshipmanager.com:18095';
-
-  private normalizedEntities: any = {};
-
-  constructor(caller: LiveRequest) {
-    this.caller = caller;
-    this.normalizedEntities = this.normalizeEntities();
-  }
-
-  entities: any = {
+export class LiveApi extends Api{
+  override url: string = 'https://portal.capitalshipmanager.com:18095';
+  override entities: any = {
     company: {
       browse: {
         method: 'GET',
@@ -113,60 +104,11 @@ export class Live implements IApi{
     },
   };
 
-  getCaller(): LiveRequest {
-    return this.caller;
+  constructor(caller: LiveRequest) {
+    super(caller);
   }
 
-  getBaseUrl(): string {
-    return this.url;
-  }
-
-  normalizeEntities(): any {
-    let normalized: any = {};
-
-    for (let aName in this.entities) {
-      normalized[aName.toLowerCase()] = this.entities[aName];
-    }
-
-    return normalized;
-  }
-
-  getEntityEndpoints(entity: string): any {
-    entity = entity || '';
-    entity = entity.toLowerCase();
-
-    return this.entities[entity];
-  }
-
-  getEndpoint(entity: string, action: string, tokens: any = {}) {
-    let endpoints = this.getEntityEndpoints(entity),
-      pick = endpoints && endpoints[action];
-
-    if (!pick) {
-      return;
-    }
-
-    pick = {
-      ...pick,
-      url: this.getSolidUrl(this.getBaseUrl() + pick.url, tokens),
-    };
-
-    return pick;
-  }
-
-  getSolidUrl(url: string = '', tokens: any = {}) {
-    for (let aName in tokens) {
-      url = url.replace(new RegExp('{' + aName + '}', 'gi'), tokens[aName]);
-    }
-
-    return url;
-  }
-
-  getUrl(): string {
-    return this.url;
-  }
-
-  ping(): boolean {
-    return true;
+  override ping(): Promise<boolean> {
+    return new Promise(resolve => resolve (false));
   }
 }

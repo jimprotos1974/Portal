@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Live } from '../../code/util/api/live';
+import { LiveApi } from '../../code/util/api/liveApi';
 import { Company } from '../../code/util/api/companyModel';
 import { Company as CompanyEntity } from '../../code/util/api/company';
 
@@ -11,11 +11,12 @@ import { CompanyModel } from '../../code/util/api/companyModel';
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css'],
 })
+
 export class CompanyComponent implements OnInit {
   listOfCompanies: Company[] = [];
 
-  constructor(private live: Live) {
-    let entity = new CompanyEntity(this.live);
+  constructor(private liveApi: LiveApi) {
+    let entity = new CompanyEntity(this.liveApi);
 
     entity.browse().subscribe((response) => {
       this.listOfCompanies = Model.convertList(response, CompanyModel);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SandboxApi } from '../../code/util/api/sandboxApi';
+import { LiveApi } from '../../code/util/api/liveApi';
 import { Vessel } from '../../code/util/api/vesselModel';
 import { Vessel as VesselEntity } from '../../code/util/api/vessel';
 import { VesselModel } from '../../code/util/api/vesselModel';
@@ -16,13 +16,13 @@ export class VesselDetailComponent implements OnInit {
   fb: any;
   vessel: Vessel | undefined;
 
-  constructor(private route: ActivatedRoute, private sandboxApi: SandboxApi) {
+  constructor(private route: ActivatedRoute, private liveApi: LiveApi) {
 
   }
   
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    let entity = new VesselEntity(this.sandboxApi);
+    let entity = new VesselEntity(this.liveApi);
 
     entity.locate(this.id).subscribe(response => {
       console.log(response)

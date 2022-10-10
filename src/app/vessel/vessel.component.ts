@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SandboxApi } from '../../code/util/api/sandboxApi';
+import { LiveApi } from '../../code/util/api/liveApi';
 import { Vessel as VesselEntity } from '../../code/util/api/vessel';
 
 @Component({
@@ -11,8 +11,8 @@ export class VesselComponent implements OnInit {
 
   listOfVessels: any = [];
 
-  constructor(private sandboxApi: SandboxApi) {
-    let entity = new VesselEntity(this.sandboxApi);
+  constructor(private liveApi: LiveApi) {
+    let entity = new VesselEntity(this.liveApi);
 
     entity.browse().subscribe(response => {
       this.listOfVessels = response;

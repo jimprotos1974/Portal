@@ -1,13 +1,13 @@
 import { Observable } from 'rxjs';
 import { LiveApi } from './liveApi';
 
-export class Vessel {
+export class ProductEntity {
   constructor(private api: LiveApi) {
     this.api = api;
   }
 
   getEndpoint(action: string, tokens: any = {}) {
-    return this.api.getEndpoint('vessel', action, tokens);
+    return this.api.getEndpoint('product', action, tokens);
   }
 
   browse(): Observable<any> {

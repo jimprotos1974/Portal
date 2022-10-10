@@ -6,6 +6,7 @@ import { CompanyDetailComponent } from './company-detail/company-detail.componen
 import { VesselComponent } from './vessel/vessel.component';
 import { VesselDetailComponent } from './vessel-detail/vessel-detail.component';
 import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 import { GarbageComponent } from './garbage/garbage.component';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'vessel', component: VesselComponent },
   { path: 'vessel/:id', component: VesselDetailComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
   /*{ path: '**', component: GarbageComponent }*/
 ];
 

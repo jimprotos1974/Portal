@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Live } from '../../code/util/api/live';
+import { LiveApi } from '../../code/util/api/liveApi';
 import { Vessel } from '../../code/util/api/vessel';
 
 @Component({
@@ -10,7 +10,7 @@ import { Vessel } from '../../code/util/api/vessel';
 export class HeaderComponent implements OnInit {
   someMore: string = '';
 
-  constructor(private live: Live) {}
+  constructor(private liveApi: LiveApi) {}
 
   ngOnInit(): void {}
 }
