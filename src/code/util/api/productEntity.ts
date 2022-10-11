@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
-import { DummyApi } from './dummyApi';
+import { Api } from './api';
 
 export class ProductEntity {
-  constructor(private api: DummyApi) {
+  constructor(private api: Api) {
     this.api = api;
   }
 

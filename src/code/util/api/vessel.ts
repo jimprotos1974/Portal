@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs';
-import { LiveApi } from './liveApi';
+import { Api } from './api';
 
 export class Vessel {
-  constructor(private api: LiveApi) {
+  constructor(private api: Api) {
     this.api = api;
   }
 

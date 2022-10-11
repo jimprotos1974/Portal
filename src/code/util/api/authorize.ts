@@ -1,11 +1,10 @@
-import { IApi } from './iApi';
 import { Observable} from 'rxjs';
-import { LiveApi } from './liveApi';
+import { Api } from './api';
 
 
 
 export class Authorize {
-  constructor(private api: LiveApi) {
+  constructor(private api: Api) {
     this.api = api;
   }
 
