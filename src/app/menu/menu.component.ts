@@ -12,22 +12,11 @@ export interface MenuItem {
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
   @Output() select = new EventEmitter<MenuItem>();
 
   menuItems:MenuItem[] = [
-    {
-      text: 'Companies',
-      leaf: true,
-      value: 'company',
-      permission: 'Permissions.Company.View',
-    },
-    {
-      text: 'Vessels',
-      leaf: true,
-      value: 'vessel',
-      permission: 'Permissions.Vessel.View',
-    },
     {
       text: 'Products',
       leaf: true,

@@ -10,11 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContentComponent } from './content/content.component';
-import { GarbageComponent } from './garbage/garbage.component';
-import { CompanyComponent } from './company/company.component';
-import { CompanyDetailComponent } from './company-detail/company-detail.component';
-import { VesselComponent } from './vessel/vessel.component';
-import { VesselDetailComponent } from './vessel-detail/vessel-detail.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
@@ -31,11 +26,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     HeaderComponent,
     MenuComponent,
     ContentComponent,
-    GarbageComponent,
-    CompanyComponent,
-    CompanyDetailComponent,
-    VesselComponent,
-    VesselDetailComponent,
     ProductComponent,
     ProductDetailComponent,
   ],
