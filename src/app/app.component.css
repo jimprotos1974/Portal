@@ -1,4 +1,12 @@
-
+.list-redir-button{
+  display:inline-block;
+  padding:4px;
+  font-size:small;
+  background-color:#d9d9e3;
+  color:#fff;
+  border-radius:4px;
+  cursor:pointer;
+}
 
 
 /*
