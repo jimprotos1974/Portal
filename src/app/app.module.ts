@@ -13,6 +13,7 @@ import { ContentComponent } from './content/content.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { UserComponent } from './user/user.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { UserComponent } from './user/user.component';
     ProductComponent,
     ProductDetailComponent,
     UserComponent,
+    UserDetailComponent,
   ],
   bootstrap: [AppComponent],
 })

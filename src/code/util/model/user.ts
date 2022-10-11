@@ -1,11 +1,118 @@
 import { Model } from '../../../pouch/model/model';
 
+export interface CoordinatesInterface {
+    lat: string,
+    lng: string
+}
+
+export interface AddressInterface {
+    address: string,
+    city: string,
+    postalCode: string,
+    state: string,
+    coordinates: CoordinatesInterface
+}
+
+export interface CompanyInterface {
+    address: AddressInterface,
+    department: string,
+    name: string,
+    title: string
+}
+
+export interface HairInterface {
+    color: string,
+    type: string
+}
+
 export interface BankInterface {
     cardExpire: string,
     cardNumber: string,
     cardType: string,
     currency: string,
     iban: string
+}
+
+
+
+export class Coordinates extends Model {
+  override fields = [
+    {
+      name: 'lat',
+      type: 'string',
+      convert: (value: any, data: any) => {
+        return "lat: " + value;
+      }
+    },
+    {
+      name: 'lng',
+      type: 'string',
+      convert: (value: any, data: any) => {
+        return "lng: " + value;
+      }
+    },
+  ]
+}
+
+export class Address extends Model {
+  override fields = [
+    {
+      name: 'address',
+      type: 'string',
+    },
+    {
+      name: 'city',
+      type: 'string',
+    },
+    {
+      name: 'postalCode',
+      type: 'string',
+    },
+    {
+      name: 'state',
+      type: 'string',
+    },
+  ];
+
+  override hasOne = [{
+    name : 'coordinates',
+    model : Coordinates
+  }]
+}
+
+export class Company extends Model {
+  override fields = [
+    {
+      name: 'department',
+      type: 'string',
+    },
+    {
+      name: 'name',
+      type: 'string',
+    },
+    {
+      name: 'title',
+      type: 'string',
+    },
+  ];
+
+  override hasOne = [{
+    name : 'address',
+    model : Address
+  }]
+}
+
+export class Hair extends Model {
+  override fields = [
+    {
+      name: 'color',
+      type: 'string',
+    },
+    {
+      name: 'type',
+      type: 'string',
+    },
+  ];
 }
 
 export class Bank extends Model {
@@ -17,6 +124,9 @@ export class Bank extends Model {
     {
       name: 'cardNumber',
       type: 'string',
+      convert: (value: any, data: any) => {
+        return 'cd: ' + value;
+      },
     },
     {
       name: 'cardType',
@@ -50,14 +160,14 @@ export interface UserInterface {
   height: number,
   weight: number,
   eyeColor: string,
-  hair: object,
+  hair: HairInterface,
   domain: string,
   ip: string,
-  address: object,
+  address: AddressInterface,
   macAddress: string,
   university: string,
-  bank: object,
-  company: object,
+  bank: BankInterface,
+  company: CompanyInterface,
   ein: string,
   ssn: string,
   userAgent: string
@@ -175,7 +285,17 @@ export class User extends Model {
     },
   ];
 
-  /*override hasOne = [{
-    bank : Bank
-  }]*/
+  override hasOne = [{
+    name : 'company',
+    model : Company
+  },{
+    name : 'address',
+    model : Address
+  },{
+    name : 'hair',
+    model : Hair
+  },{
+    name : 'bank',
+    model : Bank
+  }]
 }

@@ -7,8 +7,8 @@ export interface Field {
 }
 
 export interface Has {
-  name: 'string';
-  model: Model;
+  name: string;
+  model: typeof Model;
 }
 
 export class Model {

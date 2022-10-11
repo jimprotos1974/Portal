@@ -1,0 +1,14 @@
+<div *ngIf="user">
+<div>
+  <label for="id">ID: </label><br>
+  <input id="id" [(ngModel)]="user.id" placeholder="ID"/>
+</div>
+<div>
+  <label for="lastName">Last Name: </label><br>
+  <input id="lastName" [(ngModel)]="user.lastName" placeholder="LastName"/>
+</div>
+<div>
+  <label for="firstName">First Name: </label><br>
+  <input id="firstName" [(ngModel)]="user.firstName" placeholder="FirstName"/>
+</div>
+</div>

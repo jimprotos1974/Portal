@@ -9,6 +9,8 @@
       </a>
   </td>
   <td style="padding:5px;border-bottom:solid 1px red">{{ user.id }}</td>
-  <td style="padding:5px;border-bottom:solid 1px red">{{ user.firstName }}</td>
+  <td style="padding:5px;border-bottom:solid 1px red">{{ user.lastName }} {{ user.firstName }}</td>
+  <td style="padding:5px;border-bottom:solid 1px red">{{ user.bank.cardNumber }}</td>
+  <td style="padding:5px;border-bottom:solid 1px red">{{ user.company.address.coordinates.lat }}</td>
 </tr>
 </table>
