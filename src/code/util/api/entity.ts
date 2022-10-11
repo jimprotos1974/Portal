@@ -1,9 +1,8 @@
 import { IApi } from './iApi';
-
 import { Observable, of } from 'rxjs';
 
-export class Entity {
-  key: string = '';
+export abstract class Entity {
+  abstract key: string;
 
   constructor(protected api: IApi) {
     this.api = api;
@@ -14,8 +13,9 @@ export class Entity {
   }
 
   get(options?: any): Observable<any> {
-    let endpoint = this.getEndpoint('browse');
+    let endpoint = this.getEndpoint('browse'),
+      caller: iRequest = this.api.getCaller();
 
-    return this.api.getCaller().get(endpoint.url, options);
+    return caller.get(endpoint.url, options);
   }
 }

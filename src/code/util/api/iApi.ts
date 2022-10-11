@@ -9,6 +9,6 @@ export interface IApi {
   getBaseUrl: () => string;
 
   getEndpoint: (entity: string, action: string, tokens: any) => any;
-  ping: () => boolean;
+  ping: () => Promise<boolean>;
 
 }

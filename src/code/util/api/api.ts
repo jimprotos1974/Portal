@@ -1,6 +1,7 @@
 import { IRequest } from './iRequest';
+import { IApi } from './iApi';
 
-export abstract class Api{
+export abstract class Api implements IApi{
   abstract url: string;
   abstract entities: any;
 
