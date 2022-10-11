@@ -1,23 +1,19 @@
-<table cellpadding="0" cellspacing="0">
-  <tr *ngFor="let product of listOfProducts">
+<table style="width:100%;" cellpadding="0" cellspacing="0">
+  <tr style="vertical-align:bottom;" *ngFor="let product of listOfProducts">
     <td
-      style="width:15%;padding:5px;border-bottom:solid 1px #d9d9e3;text-align:center;"
+      style="width:35%;padding:5px;border-bottom:solid 1px #d9d9e3;font-weight:bolder;"
     >
+      <span style="color:#38c369;font-weight:300;font-size:x-small;float:right;"
+        >{{ product.category }}&nbsp;</span
+      >
+      <br />
       <a
         class="list-redir-button"
         [routerLinkActive]="['active']"
         [routerLink]="['../product/', product.id]"
         >VIEW
       </a>
-    </td>
-    <td
-      style="width:35%;padding:5px;border-bottom:solid 1px #d9d9e3;font-weight:bolder;"
-    >
-      <span
-        style="color:#38c369;font-weight:300;font-size:x-small;float:right;"
-        >{{ product.category }}</span
-      >
-      <br /><br />
+      &nbsp;
       {{ product.title }}
     </td>
     <td style="width:35%;padding:5px;border-bottom:solid 1px #d9d9e3;">
