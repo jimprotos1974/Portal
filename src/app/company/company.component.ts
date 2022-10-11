@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveApi } from '../../code/util/api/liveApi';
-import { Company } from '../../code/util/api/companyModel';
-import { Company as CompanyEntity } from '../../code/util/api/company';
-
+import { Primary as PrimaryApi } from '../../code/util/api/primary';
+import { CompanyInterface } from '../../code/util/model/company';
+import { Company as CompanyModel } from '../../code/util/model/company';
+import { Company as CompanyEntity } from '../../code/util/entity/company';
 import { Model } from '../../pouch/model/model';
-import { CompanyModel } from '../../code/util/api/companyModel';
 
 @Component({
   selector: 'app-company',
@@ -13,10 +12,10 @@ import { CompanyModel } from '../../code/util/api/companyModel';
 })
 
 export class CompanyComponent implements OnInit {
-  listOfCompanies: Company[] = [];
+  listOfCompanies: CompanyInterface[] = [];
 
-  constructor(private liveApi: LiveApi) {
-    let entity = new CompanyEntity(this.liveApi);
+  constructor(private api: PrimaryApi) {
+    let entity = new CompanyEntity(this.api);
 
     entity.browse().subscribe((response) => {
       this.listOfCompanies = Model.convertList(response, CompanyModel);

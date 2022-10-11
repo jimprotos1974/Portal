@@ -1,12 +1,12 @@
 import { Model } from '../../../pouch/model/model';
 
-export interface Vessel {
+export interface VesselInterface {
   id: number;
   name: string;
   imo: string;
 }
 
-export class VesselModel extends Model {
+export class Vessel extends Model {
   override fields = [
     {
       name: 'id',

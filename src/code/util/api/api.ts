@@ -1,4 +1,4 @@
-import { IRequest } from './iRequest';
+import { IRequest } from '../request/iRequest';
 import { IApi } from './iApi';
 
 export abstract class Api implements IApi{

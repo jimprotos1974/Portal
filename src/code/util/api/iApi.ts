@@ -1,4 +1,4 @@
-import { IRequest } from './iRequest';
+import { IRequest } from '../request/iRequest';
 
 export interface IApi {
 

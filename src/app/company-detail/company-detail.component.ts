@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LiveApi } from '../../code/util/api/liveApi';
-import { Company } from '../../code/util/api/companyModel';
-import { Company as CompanyEntity } from '../../code/util/api/company';
-import { CompanyModel } from '../../code/util/api/companyModel';
+import { Primary as PrimaryApi } from '../../code/util/api/primary';
+import { CompanyInterface } from '../../code/util/model/company';
+import { Company as CompanyModel } from '../../code/util/model/company';
+import { Company as CompanyEntity } from '../../code/util/entity/company';
 
 @Component({
   selector: 'app-company-detail',
@@ -14,15 +14,15 @@ import { CompanyModel } from '../../code/util/api/companyModel';
 export class CompanyDetailComponent implements OnInit {
   id?: number | undefined;
   fb: any;
-  company: Company | undefined;
+  company: CompanyInterface | undefined;
 
-  constructor(private route: ActivatedRoute, private liveApi: LiveApi) {
+  constructor(private route: ActivatedRoute, private api: PrimaryApi) {
 
   }
   
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    let entity = new CompanyEntity(this.liveApi);
+    let entity = new CompanyEntity(this.api);
 
     entity.locate(this.id).subscribe(response => {
       console.log(response)

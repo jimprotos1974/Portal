@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { DummyRequest } from './dummyRequest';
+import { Dummy as DummyRequest } from '../request/dummy';
 import { Api } from './api';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class DummyApi extends Api{
+export class Dummy extends Api{
   override url: string = 'https://dummyjson.com';
   override entities: any = {
     product: {

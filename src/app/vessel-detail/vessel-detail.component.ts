@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LiveApi } from '../../code/util/api/liveApi';
-import { Vessel } from '../../code/util/api/vesselModel';
-import { Vessel as VesselEntity } from '../../code/util/api/vessel';
-import { VesselModel } from '../../code/util/api/vesselModel';
+import { Primary as PrimaryApi } from '../../code/util/api/primary';
+import { VesselInterface } from '../../code/util/model/vessel';
+import { Vessel as VesselEntity } from '../../code/util/entity/vessel';
+import { Vessel as VesselModel } from '../../code/util/model/vessel';
 
 @Component({
   selector: 'app-vessel-detail',
@@ -14,15 +14,15 @@ import { VesselModel } from '../../code/util/api/vesselModel';
 export class VesselDetailComponent implements OnInit {
   id?: number | undefined;
   fb: any;
-  vessel: Vessel | undefined;
+  vessel: VesselInterface | undefined;
 
-  constructor(private route: ActivatedRoute, private liveApi: LiveApi) {
+  constructor(private route: ActivatedRoute, private api: PrimaryApi) {
 
   }
   
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    let entity = new VesselEntity(this.liveApi);
+    let entity = new VesselEntity(this.api);
 
     entity.locate(this.id).subscribe(response => {
       console.log(response)

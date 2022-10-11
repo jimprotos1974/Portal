@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { LiveRequest } from './liveRequest';
+import { Primary as PrimaryRequest } from '../request/primary';
 import { Api } from './api';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class LiveApi extends Api{
+export class Primary extends Api{
   override url: string = 'https://portal.capitalshipmanager.com:18095';
   override entities: any = {
     company: {
@@ -104,7 +104,7 @@ export class LiveApi extends Api{
     },
   };
 
-  constructor(caller: LiveRequest) {
+  constructor(caller: PrimaryRequest) {
     super(caller);
   }
 

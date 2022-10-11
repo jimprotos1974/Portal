@@ -1,6 +1,6 @@
 import { Observable, of } from 'rxjs';
 import { IApi } from '../api/iApi';
-import { IRequest } from '../api/iRequest';
+import { IRequest } from '../request/iRequest';
 
 export abstract class Entity {
   abstract key: string;

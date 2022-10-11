@@ -1,6 +1,6 @@
 import { Model } from '../../../pouch/model/model';
 
-export interface Company {
+export interface CompanyInterface {
   id: number;
   name: string;
   code: string;
@@ -11,7 +11,7 @@ export interface Company {
   logo: string;
 }
 
-export class CompanyModel extends Model {
+export class Company extends Model {
   override fields = [
     {
       name: 'id',

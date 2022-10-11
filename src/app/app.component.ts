@@ -3,10 +3,6 @@ import { MenuItem } from './menu/menu.component';
 
 import { FormBuilder } from '@angular/forms';
 
-import { Authorize } from '../code/util/api/authorize';
-
-import { LiveApi } from '../code/util/api/liveApi';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,15 +15,13 @@ export class AppComponent {
 
   fb: any;
 
-  constructor(private formBuilder: FormBuilder, private liveApi: LiveApi) {
+  constructor(private formBuilder: FormBuilder) {
     let me = this;
 
     this.fb = this.formBuilder.group({
       username: [''],
       password: [''],
     });
-
-    this.cookie = localStorage.getItem('user');
   }
 
   selectMenuItem(menuItem: MenuItem) {
@@ -35,21 +29,6 @@ export class AppComponent {
   }
 
   onPortalClick() {}
-
-  login() {
-    let userName = this.fb.get('username').value,
-      password = this.fb.get('password').value;
-
-    let a = new Authorize(this.liveApi);
-
-    a.login(userName, password).subscribe((response) => {
-      console.log(response);
-
-      localStorage.setItem('user', JSON.stringify(response));
-
-      this.cookie = response;
-    });
-  }
 }
 
 /*

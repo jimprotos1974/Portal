@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveApi } from '../../code/util/api/liveApi';
-import { Vessel } from '../../code/util/api/vessel';
+import { Primary as PrimaryApi } from '../../code/util/api/primary';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +9,7 @@ import { Vessel } from '../../code/util/api/vessel';
 export class HeaderComponent implements OnInit {
   someMore: string = '';
 
-  constructor(private liveApi: LiveApi) {}
+  constructor(private api: PrimaryApi) {}
 
   ngOnInit(): void {}
 }

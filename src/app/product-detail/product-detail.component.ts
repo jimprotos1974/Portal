@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DummyApi } from '../../code/util/api/dummyApi';
-import { Product } from '../../code/util/api/productModel';
-import { ProductModel } from '../../code/util/api/productModel';
+import { Dummy as DummyApi } from '../../code/util/api/dummy';
+import { ProductInterface } from '../../code/util/model/product';
+import { Product as ProductModel } from '../../code/util/model/product';
 import { Product as ProductEntity } from '../../code/util/entity/product';
 
 @Component({
@@ -14,7 +14,7 @@ import { Product as ProductEntity } from '../../code/util/entity/product';
 export class ProductDetailComponent implements OnInit {
   id?: number | undefined;
   fb: any;
-  product: Product | undefined;
+  product: ProductInterface | undefined;
 
   constructor(private route: ActivatedRoute, private api: DummyApi) {
 
