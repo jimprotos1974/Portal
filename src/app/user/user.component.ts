@@ -8,22 +8,18 @@ import { Model } from '../../pouch/model/model';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
 })
+export class UserComponent implements OnInit {
+  listOfUsers: UserInterface[] = [];
 
-  export class UserComponent implements OnInit {
-    listOfUsers: UserInterface[] = [];
+  constructor(private api: DummyApi) {
+    let entity = new UserEntity(this.api);
 
-    constructor(private api: DummyApi) {
-      let entity = new UserEntity(this.api);
-
-      entity.browse().subscribe((response) => {
+    entity.browse().subscribe((response) => {
       this.listOfUsers = Model.convertList(response.users, UserModel);
     });
   }
 
-  ngOnInit(): void {
-    alert(1);
-  }
-
+  ngOnInit(): void {}
 }
