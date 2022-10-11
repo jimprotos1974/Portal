@@ -23,6 +23,7 @@ import { Model } from '../../pouch/model/model';
   }
 
   ngOnInit(): void {
+    alert(1);
   }
 
 }
