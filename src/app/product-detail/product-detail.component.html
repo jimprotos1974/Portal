@@ -1,14 +1,18 @@
-<div style="text-align:left;" *ngIf="product">
-<div>
-  <label for="id">ID: </label><br>
-  <input id="id" [(ngModel)]="product.id" placeholder="ID"/>
-</div>
-<div>
-  <label for="name">Name: </label><br>
-  <input id="name" [(ngModel)]="product.description" placeholder="Description"/>
-</div>
-<div>
-  <label for="name">Extra: </label><br>
-  <input id="name" [(ngModel)]="product.extra" placeholder="Extra"/>
-</div>
+<div style="text-align:left;padding:8px;" *ngIf="product">
+  <div>
+    <label for="id">ID: </label><br />
+    <input id="id" [(ngModel)]="product.id" placeholder="ID" />
+  </div>
+  <div>
+    <label for="name">Name: </label><br />
+    <input
+      id="name"
+      [(ngModel)]="product.description"
+      placeholder="Description"
+    />
+  </div>
+  <div>
+    <label for="name">Extra: </label><br />
+    <input id="name" [(ngModel)]="product.extra" placeholder="Extra" />
+  </div>
 </div>
