@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DummyApi } from '../../code/util/api/dummyApi';
 import { Product } from '../../code/util/api/productModel';
-import { Product as ProductEntity } from '../../code/util/api/product';
+import { Product as ProductEntity } from '../../code/util/entity/product';
 
 import { Model } from '../../pouch/model/model';
 import { ProductModel } from '../../code/util/api/productModel';

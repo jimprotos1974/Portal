@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DummyApi } from '../../code/util/api/dummyApi';
 import { Product } from '../../code/util/api/productModel';
 import { ProductModel } from '../../code/util/api/productModel';
-import { ProductEntity } from '../../code/util/api/productEntity';
+import { Product as ProductEntity } from '../../code/util/entity/product';
 
 @Component({
   selector: 'app-product-detail',
