@@ -12,6 +12,7 @@ export interface Product {
   category: string;
   thumbnail: string;
   images: string[];
+  extra: string;
 }
 
 export class ProductModel extends Model {
@@ -59,6 +60,13 @@ export class ProductModel extends Model {
     {
       name: 'images',
       type: 'auto',
+    },
+    {
+      name: 'extra',
+      type: 'string',
+      convert: (value: any, data: any) => {
+        return 'xxx.' + data.description + '.xxx';
+      },
     },
   ];
 }
