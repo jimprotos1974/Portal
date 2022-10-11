@@ -18,10 +18,16 @@ export class MenuComponent implements OnInit {
 
   menuItems:MenuItem[] = [
     {
+      text: 'Users',
+      leaf: true,
+      value: 'user',
+      permission: 'Permissions.User.View',
+    },
+    {
       text: 'Products',
       leaf: true,
       value: 'product',
-      permission: 'Permissions.Vessel.View',
+      permission: 'Permissions.Product.View',
     },
   ];
   

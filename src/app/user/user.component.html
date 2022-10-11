@@ -1,0 +1,14 @@
+<table cellpadding="0" cellspacing="0" *ngFor="let user of listOfUsers">
+<tr>
+  <td style="padding:5px;border-bottom:solid 1px red">
+      <a
+        class="nav-link"
+        [routerLinkActive]="['active']"
+        [routerLink]="['../user/', user.id]"
+        >=>
+      </a>
+  </td>
+  <td style="padding:5px;border-bottom:solid 1px red">{{ user.id }}</td>
+  <td style="padding:5px;border-bottom:solid 1px red">{{ user.firstName }}</td>
+</tr>
+</table>
