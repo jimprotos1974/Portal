@@ -28,9 +28,11 @@ export class UserDetailComponent implements OnInit {
       console.log(response)
 
       this.user = new UserModel(response).convert();
-
-      alert(document.getElementsByTagName('input').length);
     });
   }
+
+  ngOnChanges(changes: any): void{
+    console.log("xxx");
+  };
 
 }
