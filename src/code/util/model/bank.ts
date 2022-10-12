@@ -35,3 +35,4 @@ export class Bank extends Model {
     },
   ];
 }
+
