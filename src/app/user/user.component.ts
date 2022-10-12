@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Dummy as DummyApi } from '../../code/util/api/dummy';
-import { UserInterface } from '../../code/util/model/user';
-import { User as UserEntity } from '../../code/util/entity/user';
-import { User as UserModel } from '../../code/util/model/user';
+import { Dummy as DummyApi } from '../../code/api/dummy';
+import { UserInterface } from '../../code/model/user';
+import { User as UserEntity } from '../../code/entity/user';
+import { User as UserModel } from '../../code/model/user';
 import { Model } from '../../pouch/model/model';
 
 @Component({

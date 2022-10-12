@@ -1,4 +1,4 @@
-import { Model } from '../../../pouch/model/model';
+import { Model } from '../../pouch/model/model';
 
 import { Address } from './address';
 import { AddressInterface } from './address';

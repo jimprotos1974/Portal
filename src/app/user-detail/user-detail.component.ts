@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Dummy as DummyApi } from '../../code/util/api/dummy';
-import { UserInterface } from '../../code/util/model/user';
-import { User as UserModel } from '../../code/util/model/user';
-import { User as UserEntity } from '../../code/util/entity/user';
+import { Dummy as DummyApi } from '../../code/api/dummy';
+import { UserInterface } from '../../code/model/user';
+import { User as UserModel } from '../../code/model/user';
+import { User as UserEntity } from '../../code/entity/user';
 
 @Component({
   selector: 'app-user-detail',

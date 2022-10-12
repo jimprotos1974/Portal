@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Dummy as DummyApi } from '../../code/util/api/dummy';
-import { ProductInterface } from '../../code/util/model/product';
-import { Product as ProductModel } from '../../code/util/model/product';
-import { Product as ProductEntity } from '../../code/util/entity/product';
+import { Dummy as DummyApi } from '../../code/api/dummy';
+import { ProductInterface } from '../../code/model/product';
+import { Product as ProductModel } from '../../code/model/product';
+import { Product as ProductEntity } from '../../code/entity/product';
 
 @Component({
   selector: 'app-product-detail',

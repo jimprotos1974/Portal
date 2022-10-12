@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Primary as PrimaryApi } from '../../code/util/api/primary';
+import { Primary as PrimaryApi } from '../../code/api/primary';
 
 @Component({
   selector: 'app-header',

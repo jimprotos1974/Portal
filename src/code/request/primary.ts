@@ -4,17 +4,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { IRequest } from '../request/iRequest';
+import { IRequest } from './iRequest';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Dummy implements IRequest {
+
+export class Primary implements IRequest {
   constructor(private http: HttpClient) {}
 
   get(url: string, options?: any): Observable<any> {
     options = {
-      withCredentials: false,
+      withCredentials: true
     };
 
     return this.http.get(url, options).pipe(
@@ -23,9 +24,9 @@ export class Dummy implements IRequest {
     );
   }
 
-  post(url: string, body: any, options?: any): Observable<any> {
+  post(url: string, body: any, options?: any): Observable<any> {    
     options = {
-      withCredentials: false,
+      withCredentials: true
     };
 
     return this.http.post(url, body, options).pipe(
@@ -34,22 +35,22 @@ export class Dummy implements IRequest {
     );
   }
 
-  put(url: string, body: any, options?: any): Observable<any> {
+  put(url: string, body: any, options?: any): Observable<any> {    
     options = {
-      withCredentials: false,
+      withCredentials: true
     };
-
+    
     return this.http.put(url, body, options).pipe(
       tap((data: any) => console.log('put ok!')),
       catchError(this.handleError<any>('put'))
     );
   }
 
-  delete(url: string, options?: any): Observable<any> {
+  delete(url: string, options?: any): Observable<any> {    
     options = {
-      withCredentials: false,
+      withCredentials: true
     };
-
+    
     return this.http.delete(url, options).pipe(
       tap((data: any) => console.log('deleted ok!')),
       catchError(this.handleError<any>('delete'))

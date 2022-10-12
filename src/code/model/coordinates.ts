@@ -1,4 +1,4 @@
-import { Model } from '../../../pouch/model/model';
+import { Model } from '../../pouch/model/model';
 
 export interface CoordinatesInterface {
   lat: string,
