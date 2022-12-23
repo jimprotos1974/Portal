@@ -1,16 +1,16 @@
 import { IRequest } from '../request/iRequest';
 import { IApi } from './iApi';
+import { Controllers, EndpointFactory } from '../endpoint/endpointFactory';
 
 export abstract class Api implements IApi{
-  abstract url: string;
-  abstract entities: any;
+  abstract baseUrl: string;
 
   caller: IRequest;
-  normalizedEntities: any;
+  endpointFactory: EndpointFactory
 
-  constructor(caller: IRequest) {
+  constructor(caller: IRequest, endpointFactory: EndpointFactory) {
     this.caller = caller;
-    this.normalizedEntities = this.normalizeEntities();
+    this.endpointFactory = endpointFactory;
   }
 
   getCaller(): IRequest {
@@ -18,49 +18,12 @@ export abstract class Api implements IApi{
   }
 
   getBaseUrl(): string {
-    return this.url;
+    return this.baseUrl;
   }
 
   abstract ping(): Promise<boolean>
 
-  normalizeEntities(): any {
-    let normalized: any = {};
-
-    for (let aName in this.entities) {
-      normalized[aName.toLowerCase()] = this.entities[aName];
-    }
-
-    return normalized;
-  }
-
-  getEndpointsSet(entity: string): any {
-    entity = entity || '';
-    entity = entity.toLowerCase();
-
-    return this.entities[entity];
-  }
-
   getEndpoint(entity: string, action: string, tokens: any = {}) {
-    let endpoints = this.getEndpointsSet(entity),
-      pick = endpoints && endpoints[action];
-
-    if (!pick) {
-      return;
-    }
-
-    pick = {
-      ...pick,
-      url: this.getSolidUrl(this.getBaseUrl() + pick.url, tokens),
-    };
-
-    return pick;
-  }
-
-  getSolidUrl(url: string = '', tokens: any = {}) {
-    for (let aName in tokens) {
-      url = url.replace(new RegExp('{' + aName + '}', 'gi'), tokens[aName]);
-    }
-
-    return url;
+    return this.endpointFactory.getEndpoint(entity, action, tokens);
   }
 }

@@ -2,8 +2,7 @@ import { IRequest } from '../request/iRequest';
 
 export interface IApi {
 
-  url: string;
-  entities: any;
+  baseUrl: string;
 
   getCaller: () => IRequest;
   getBaseUrl: () => string;
