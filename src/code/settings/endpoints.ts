@@ -1,18 +1,6 @@
-type EndpointMethod = {
-  method : string,
-  permission : string,
-  url : string
-}
+import { Controllers, EndpointFactory } from '../endpoint/endpointFactory';
 
-type EndpointEntity = {
-  [key: string]: EndpointMethod
-}
-
-type Endpoint = {
-  [key: string]: EndpointEntity
-}
-
-export let endpoints: Endpoint = {
+export let endpoints: Controllers = {
   user: {
     browse: {
       method: 'GET',

@@ -1,17 +1,19 @@
 <div>
   <label for="id">Username: </label><br />
   <input 
-  id="id" 
+  id="username" 
+  [(ngModel)]="credentials.username"
   placeholder="Username" 
   />
 </div>
 <div>
   <label for="name">Password: </label><br />
   <input
-    id="name"
+    id="password"
+    [(ngModel)]="credentials.password"
     placeholder="Password"
   />
 </div>
 <div>
-  <button for="name">Extra: </button>
+  <button (click)="login()">Login</button>
 </div>

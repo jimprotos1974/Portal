@@ -13,6 +13,12 @@ export abstract class Entity {
     return this.api.getEndpoint(this.key, action, tokens);
   }
 
+  post(url:string, body:any, options?: any): Observable<any> {
+    let caller: IRequest = this.api.getCaller();
+
+    return caller.post(url, body, options);
+  }
+
   get(url:string, options?: any): Observable<any> {
     let caller: IRequest = this.api.getCaller();
 

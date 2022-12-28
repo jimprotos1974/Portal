@@ -1,6 +1,6 @@
 export type EndpointMethod = {
   method: string;
-  permission: string;
+  permission?: string;
   url: string;
 };
 

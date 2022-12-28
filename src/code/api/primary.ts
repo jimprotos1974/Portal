@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Api } from './api';
-
 import { Primary as PrimaryRequest } from '../request/primary';
-import { Dummy as DummyEndpointFactory } from '../endpoint/dummy';
+import { Api } from './api';
+import { Primary as PrimaryEndpointFactory } from '../endpoint/primary';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +10,7 @@ import { Dummy as DummyEndpointFactory } from '../endpoint/dummy';
 export class Primary extends Api{
   override baseUrl: string = 'https://portal.capitalshipmanager.com:18095';
 
-  constructor(caller: PrimaryRequest, endpointFactory: DummyEndpointFactory) {
+  constructor(caller: PrimaryRequest, endpointFactory: PrimaryEndpointFactory) {
     super(caller, endpointFactory);
   }
 
