@@ -1,6 +1,6 @@
 import { ICache, CacheItem } from './ICache';
 
-export class LocalStorage extends ICache {
+export class LocalStorage implements ICache {
   get(key: string){
     return localStorage.getItem(key);
   }

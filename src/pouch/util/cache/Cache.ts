@@ -29,11 +29,11 @@ export class Cache {
 				var isValid = true;
 				
 				if (cached.expiresTicks){
-					isValid = (nowTicks <= cached.expires);
+					isValid = (nowTicks <= cached.expiresTicks);
 				}
 				
 				if (isValid && version){
-					isValid = cached.version && (cached.version >= version);
+					isValid = !!cached.version && (cached.version >= version);
 				}
 				
 				if (isValid){
