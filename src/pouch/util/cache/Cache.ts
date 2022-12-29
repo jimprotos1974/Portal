@@ -14,37 +14,31 @@ export class Cache {
 	get(key: string, version: string){
 		var provider = this.provider,
 			fullKey = this.getFullKey(key),
-			cached = provider.get(fullKey);
+			cachedSource = provider.get(fullKey);
 
-		if (cached){
-			try {
-				var nowTicks = new Date().getTime();
-				
-				cached = JSON.parse(cached);
-				
-				if (!cached.expiresTicks && !version){
-					return cached.value;
-				}
-				
-				var isValid = true;
-				
-				if (cached.expiresTicks){
-					isValid = (nowTicks <= cached.expiresTicks);
-				}
-				
-				if (isValid && version){
-					isValid = !!cached.version && (cached.version >= version);
-				}
-				
-				if (isValid){
-					return cached.value;
-				}
-				
-				this.remove(key);
+		if (cachedSource){
+			var nowTicks = new Date().getTime(),
+				cacheItem: CacheItem = JSON.parse(cachedSource);
+			
+			if (!cacheItem.expiresTicks && !version){
+				return cacheItem.value;
 			}
-			catch (exc){
-				return cached;
+			
+			var isValid = true;
+			
+			if (cacheItem.expiresTicks){
+				isValid = (nowTicks <= cacheItem.expiresTicks);
 			}
+			
+			if (isValid && version){
+				isValid = !!cacheItem.version && (cacheItem.version >= version);
+			}
+			
+			if (isValid){
+				return cacheItem.value;
+			}
+			
+			this.remove(key);
 		}
 			
 		return null;
