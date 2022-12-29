@@ -1,12 +1,12 @@
 export type CacheItem = {
   insertedTicks : number;
-  expiresTicks : number;
-  version : string;
+  expiresTicks : number | null;
+  version : string | null;
   value : any
 };
 
 export interface ICache{
-  get: (key: string) => string;
+  get: (key: string) => string | null;
 
   set: (key: string, value: string) => void;
 

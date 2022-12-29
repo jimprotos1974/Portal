@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Primary as PrimaryApi } from '../../code/api/primary';
 import { Authorize as AuthorizeEntity } from '../../code/entity/authorize';
+import { Cache } from '../../pouch/util/cache/Cache';
+
+import * as globals from '../../code/globals'
 
 @Component({
   selector: 'app-login',
@@ -32,7 +35,9 @@ export class LoginComponent implements OnInit {
     entity
       .login(this.credentials.username, this.credentials.password)
       .subscribe((response) => {
-        //this.listOfProducts = Model.convertList(response.products, ProductModel);
+        (globals.params.cache as Cache).set('user', response);
+
+        alert((globals.params.cache as Cache).get('user'));
       });
   }
 }

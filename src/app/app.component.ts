@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { MenuItem } from './menu/menu.component';
+import { Cache } from '../pouch/util/cache/Cache';
+import { LocalStorage } from '../pouch/util/cache/LocalStorage';
 
-import { FormBuilder } from '@angular/forms';
+import * as globals from '../code/globals';
 
 @Component({
   selector: 'app-root',
@@ -9,21 +10,9 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  task: MenuItem | undefined;
-  cookie: string | undefined | null;
-
-  fb: any;
-
-  constructor(private formBuilder: FormBuilder) {
-    let me = this;
-
-    this.fb = this.formBuilder.group({
-      username: [''],
-      password: [''],
-    });
+  constructor() {
+    globals.params.cache = new Cache(new LocalStorage(), '');
   }
-
-  onPortalClick() {}
 }
 
 /*

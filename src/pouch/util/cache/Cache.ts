@@ -1,17 +1,17 @@
 import { ICache, CacheItem } from './ICache';
 
 export class Cache {
-  prefix: string = '';
 
-  constructor(private provider: ICache) {
+  constructor(private provider: ICache, private prefix: string = '') {
     this.provider = provider;
+		this.prefix = prefix;
   }
 
 	getFullKey(key: string): string{
 		return this.prefix + key;
 	}
 	
-	get(key: string, version: string){
+	get(key: string, version: string | null = null){
 		var provider = this.provider,
 			fullKey = this.getFullKey(key),
 			cachedSource = provider.get(fullKey);
@@ -44,7 +44,7 @@ export class Cache {
 		return null;
 	}
 
-	set(key: string, value: any, expires: number, version: string){
+	set(key: string, value: any, expires: number | null = null, version: string | null = null){
 		var provider = this.provider,
 			fullKey = this.getFullKey(key);
 			
