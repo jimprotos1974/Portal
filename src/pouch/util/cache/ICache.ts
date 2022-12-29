@@ -6,7 +6,7 @@ export type CacheItem = {
 };
 
 export interface ICache{
-  get: (key: string) => CacheItem;
+  get: (key: string) => string;
 
   set: (key: string, value: CacheItem) => void;
 
