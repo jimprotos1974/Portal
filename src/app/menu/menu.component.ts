@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import * as globals from '../../code/Globals'
-
 export interface MenuItem {
   text: string;
   leaf: boolean;
@@ -38,13 +36,7 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
 
-  selectMenuItem(item:MenuItem){
-    alert(1);
-    this.selectedItem = item;
-    
-    this.select.emit(item);
   }
 
 }

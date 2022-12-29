@@ -23,11 +23,6 @@ export class AppComponent {
     });
   }
 
-  selectMenuItem(menuItem: MenuItem) {
-    alert(2);
-    this.task = menuItem;
-  }
-
   onPortalClick() {}
 }
 

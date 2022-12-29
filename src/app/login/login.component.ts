@@ -27,10 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    alert(this.credentials.username);
-
-    debugger;
-
     let entity = new AuthorizeEntity(this.primaryApi);
 
     entity

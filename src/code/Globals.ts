@@ -1,1 +1,3 @@
-export const test = 'hello world!';
+export var params = {
+  test : 'hello world'
+};
