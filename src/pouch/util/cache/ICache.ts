@@ -8,7 +8,7 @@ export type CacheItem = {
 export interface ICache{
   get: (key: string) => string;
 
-  set: (key: string, value: CacheItem) => void;
+  set: (key: string, value: string) => void;
 
   remove: (key: string) => void;
 }
