@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       .subscribe((response) => {
         (globals.params.cache as Cache).set('user', response);
 
-        alert((globals.params.cache as Cache).get('user'));
+        alert(JSON.parse((globals.params.cache as Cache).get('user')));
       });
   }
 }
