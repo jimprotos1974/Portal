@@ -8,7 +8,6 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-
 export class AppComponent {
   task: MenuItem | undefined;
   cookie: string | undefined | null;
@@ -25,6 +24,7 @@ export class AppComponent {
   }
 
   selectMenuItem(menuItem: MenuItem) {
+    alert(2);
     this.task = menuItem;
   }
 
