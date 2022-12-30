@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cache } from '../pouch/util/cache/Cache';
 import { LocalStorage } from '../pouch/util/cache/LocalStorage';
+import { Primary as PrimaryApi } from '../code/api/primary'
 
 import * as globals from '../code/globals';
 

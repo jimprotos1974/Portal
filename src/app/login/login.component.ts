@@ -11,6 +11,7 @@ import * as globals from '../../code/globals'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
+
 export class LoginComponent implements OnInit {
   credentials: {
     username: string;
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
       .subscribe((response) => {
         (globals.params.cache as Cache).set('user', response);
 
-        alert(JSON.parse((globals.params.cache as Cache).get('user')));
+        alert(JSON.stringify((globals.params.cache as Cache).get('user')));
       });
   }
 }
