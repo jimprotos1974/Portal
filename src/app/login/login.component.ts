@@ -31,14 +31,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    let entity = new AuthorizeEntity(this.primaryApi);
+    let entity = new AuthorizeEntity(globals.params.primaryApi!);
 
     entity
       .login(this.credentials.username, this.credentials.password)
       .subscribe((response) => {
-        (globals.params.cache as Cache).set('user', response);
+        globals.params.cache!.set('user', response);
 
-        alert(JSON.stringify((globals.params.cache as Cache).get('user')));
+        alert(JSON.stringify(globals.params.cache!.get('user')));
       });
   }
 }

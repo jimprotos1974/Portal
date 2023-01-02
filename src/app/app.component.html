@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-<app-login></app-login>
+<app-login *ngIf="!this.authenticated"></app-login>
 
-<table style="width:100%;height:100%;">
+<table  *ngIf="this.authenticated" style="width:100%;height:100%;">
   <tr>
     <td>
       <app-menu></app-menu>
@@ -12,8 +12,6 @@
     </td>
   </tr>
 </table>
-
-<router-outlet></router-outlet>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

@@ -6,7 +6,4 @@ type Params = {
   primaryApi : IApi | null
 };
 
-export let params: Params = {
-  cache: null,
-  primaryApi : null
-};
+export let params: Params;
