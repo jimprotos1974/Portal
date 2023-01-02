@@ -1,3 +1,11 @@
+import { Authorize as AuthorizeEntity } from '../code/entity/authorize';
+
+import { Cache } from '../pouch/util/cache/Cache';
+
+import * as globals from '../code/globals'
+
+import { Injectable } from '@angular/core';
+
 export type UserData = {
   approvalLevel? : number,
   companyCode? : string,
@@ -15,16 +23,45 @@ export type UserData = {
   vesselsAssigned? : number[] | string[]
 }
 
+@Injectable({
+  providedIn: 'root',
+})
+
 export class User{
   userData: UserData = {};
 
-  contructor(){
+	cacher? : Cache;
 
+  contructor(){
+		debugger;
+		this.cacher = globals.params.cache!.get('user');
   }
 
   isLoggedIn(): boolean{
     return this.userData ? !!this.userData.userName : false;
   }
+	
+	login(username: string, password: string){
+    let entity = new AuthorizeEntity(globals.params.primaryApi!);
+
+    entity
+      .login(username, password)
+      .subscribe((response) => {
+debugger;
+				this.userData = response;
+				this.saveUser();
+      });
+	}
+
+	saveUser(){
+		let data = this.userData;
+			
+		if (!data){
+			return this.cacher!.remove('profile');
+		}
+		
+		this.cacher!.set('profile', data);
+	}
 	
 	getUser(){
 		return this.userData;

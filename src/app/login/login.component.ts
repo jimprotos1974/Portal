@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Primary as PrimaryApi } from '../../code/api/primary';
-import { Authorize as AuthorizeEntity } from '../../code/entity/authorize';
-import { Cache } from '../../pouch/util/cache/Cache';
-
-import * as globals from '../../code/globals'
+import { User } from '../../code/user';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +17,9 @@ export class LoginComponent implements OnInit {
     password: '!123456789aA',
   };
 
-  constructor(private primaryApi: PrimaryApi) {}
+  constructor(private user: User) {
+    this.user = user;
+  }
 
   ngOnInit(): void {
     this.credentials = {
@@ -31,7 +29,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    let entity = new AuthorizeEntity(globals.params.primaryApi!);
+    this.user.login(this.credentials.username, this.credentials.password);
+    /*let entity = new AuthorizeEntity(globals.params.primaryApi!);
 
     entity
       .login(this.credentials.username, this.credentials.password)
@@ -39,6 +38,6 @@ export class LoginComponent implements OnInit {
         globals.params.cache!.set('user', response);
 
         alert(JSON.stringify(globals.params.cache!.get('user')));
-      });
+      });*/
   }
 }
