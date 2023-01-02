@@ -16,7 +16,6 @@ export class AppComponent {
   authenticated: boolean = false;
 
   constructor(private injector: Injector) {
-    debugger;
     globals.params.cache = new Cache(new LocalStorage(), '');
     globals.params.primaryApi = this.injector.get<any>(PrimaryApi);
 

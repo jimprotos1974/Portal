@@ -32,9 +32,8 @@ export class User{
 
 	cacher? : Cache;
 
-  contructor(){
-		debugger;
-		this.cacher = globals.params.cache!.get('user');
+  constructor(){
+		this.cacher = globals.params.cache!;
   }
 
   isLoggedIn(): boolean{
@@ -47,7 +46,6 @@ export class User{
     entity
       .login(username, password)
       .subscribe((response) => {
-debugger;
 				this.userData = response;
 				this.saveUser();
       });
@@ -57,10 +55,10 @@ debugger;
 		let data = this.userData;
 			
 		if (!data){
-			return this.cacher!.remove('profile');
+			return this.cacher!.remove('user');
 		}
 		
-		this.cacher!.set('profile', data);
+		this.cacher!.set('user', data);
 	}
 	
 	getUser(){
