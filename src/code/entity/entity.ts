@@ -13,25 +13,25 @@ export abstract class Entity {
     return this.api.getEndpoint(this.key, action, tokens);
   }
 
-  post(url:string, body:any, options?: any): Observable<any> {
-    let caller: IRequest = this.api.getCaller();
-
-    return caller.post(url, body, options);
-  }
-
-  get(url:string, options?: any): Observable<any> {
+  get(url:string, options?: any): Promise<any> {
     let caller: IRequest = this.api.getCaller();
 
     return caller.get(url, options);
   }
 
-  browse(): Observable<any> {
+  post(url:string, body:any, options?: any): Promise<any> {
+    let caller: IRequest = this.api.getCaller();
+
+    return caller.post(url, body, options);
+  }
+
+  browse(): Promise<any> {
     let endpoint: any = this.getEndpoint('browse');
 
     return this.get(endpoint.url);
   }
 
-  locate(id: number): Observable<any> {
+  locate(id: number): Promise<any> {
     let endpoint: any = this.getEndpoint('locate', { id: id });
 
     return this.get(endpoint.url);

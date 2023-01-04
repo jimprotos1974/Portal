@@ -17,7 +17,12 @@ export class ProductComponent implements OnInit {
   constructor(private dummyApi: DummyApi) {
     let entity = new ProductEntity(this.dummyApi);
 
-    entity.browse().subscribe((response) => {
+    /*entity.browse().subscribe((response) => {
+      this.listOfProducts = Model.convertList(response.products, ProductModel);
+    });*/
+
+    entity.browse()
+    .then((response) => {
       this.listOfProducts = Model.convertList(response.products, ProductModel);
     });
   }

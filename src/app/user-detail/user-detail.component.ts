@@ -20,7 +20,8 @@ export class UserDetailComponent implements OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     let entity = new UserEntity(this.api);
 
-    entity.locate(this.id).subscribe((response) => {
+    entity.locate(this.id)
+    .then((response) => {
       console.log(response);
 
       this.user = new UserModel(response).convert();

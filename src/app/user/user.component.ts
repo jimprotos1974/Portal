@@ -16,7 +16,8 @@ export class UserComponent implements OnInit {
   constructor(private api: DummyApi) {
     let entity = new UserEntity(this.api);
 
-    entity.browse().subscribe((response) => {
+    entity.browse()
+    .then((response) => {
       this.listOfUsers = Model.convertList(response.users, UserModel);
     });
   }

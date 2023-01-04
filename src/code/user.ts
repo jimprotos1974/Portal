@@ -45,7 +45,7 @@ export class User{
 
     entity
       .login(username, password)
-      .subscribe((response) => {
+      .then((response) => {
 				this.userData = response;
 				this.saveUser();
       });

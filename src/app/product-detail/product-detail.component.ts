@@ -24,7 +24,8 @@ export class ProductDetailComponent implements OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     let entity = new ProductEntity(this.api);
 
-    entity.locate(this.id).subscribe(response => {
+    entity.locate(this.id)
+    .then(response => {
       console.log(response)
 
       this.product = new ProductModel(response).convert();

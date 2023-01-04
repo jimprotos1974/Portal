@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 export class Authorize extends Entity {
   override key = 'authorize';
 
-	login(username:string, password: string): Observable<any>{
+	login(username:string, password: string): Promise<any>{
 		let endpoint = this.getEndpoint('login'),
       body = {
 				userName : username,
