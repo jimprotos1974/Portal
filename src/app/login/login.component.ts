@@ -29,15 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.user.login(this.credentials.username, this.credentials.password);
-    /*let entity = new AuthorizeEntity(globals.params.primaryApi!);
-
-    entity
-      .login(this.credentials.username, this.credentials.password)
-      .subscribe((response) => {
-        globals.params.cache!.set('user', response);
-
-        alert(JSON.stringify(globals.params.cache!.get('user')));
-      });*/
+    this.user.login(this.credentials.username, this.credentials.password)
+    .then(function(){
+      window.location.reload();
+    });
   }
 }

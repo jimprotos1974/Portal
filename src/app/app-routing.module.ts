@@ -7,12 +7,16 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
+import { VesselComponent } from './vessel/vessel.component';
+
 const routes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'product/:id', component: ProductDetailComponent },
   
   { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserDetailComponent },
+  
+  { path: 'vessel', component: VesselComponent },
 ];
 
 @NgModule({

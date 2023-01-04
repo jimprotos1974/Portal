@@ -28,4 +28,36 @@ export let PrimaryEndpoints: Controllers = {
       url        : '/api/authorize/logout'
     }
   },
+  vessel : {
+    browse : {
+      method     : 'GET',
+      permission : 'Permissions.Vessel.View',
+      url        : '/api/vessels'
+    },
+    locate : {
+      method     : 'GET',
+      permission : 'Permissions.Vessel.View',
+      url        : '/api/vessels/{id}'
+    },
+    create : {
+      method     : 'POST',
+      permission : 'Permissions.Vessel.Create',
+      url        : '/api/vessels'
+    },
+    update : {
+      method     : 'PUT',
+      permission : 'Permissions.Vessel.Edit',
+      url        : '/api/vessels/{id}'
+    },
+    remove : {
+      method     : 'DELETE',
+      permission : 'Permissions.Vessel.Delete',
+      url        : '/api/vessels/{id}'
+    },
+    filter : {
+      method     : 'POST',
+      permission : 'Permissions.Vessel.View',
+      url        : '/api/vessels/filter'
+    },
+  },
 };

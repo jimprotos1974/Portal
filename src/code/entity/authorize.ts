@@ -14,4 +14,10 @@ export class Authorize extends Entity {
 		
 		return this.post(endpoint.url, body);
 	}
+
+	logout(): Promise<any>{
+		let endpoint = this.getEndpoint('logout');
+		
+		return this.post(endpoint.url, null);
+	}
 }

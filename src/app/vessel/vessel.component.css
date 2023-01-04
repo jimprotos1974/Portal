@@ -1,0 +1,15 @@
+.list-redir-button {
+  display: inline-block;
+  padding: 4px;
+  font-size: x-small;
+  background-color: #c9c9df10;
+  color: rgb(211, 208, 208);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.list-redir-button:hover {
+  background-color: #fad6b6;
+  color: #fff;
+  transition: 0.5s;
+}

@@ -29,6 +29,12 @@ export class MenuComponent implements OnInit {
       value: 'product',
       permission: 'Permissions.Product.View',
     },
+    {
+      text: 'Vessels',
+      leaf: true,
+      value: 'vessel',
+      permission: 'Permissions.Vessel.View',
+    },
   ];
   
   selectedItem:MenuItem | undefined;
