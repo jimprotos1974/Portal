@@ -5,6 +5,12 @@ import { ProductInterface } from '../../code/model/product';
 import { Product as ProductModel } from '../../code/model/product';
 import { Product as ProductEntity } from '../../code/entity/product';
 
+import {
+  FormsModule,
+  FormGroup,
+  FormControl
+} from '@angular/forms';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
