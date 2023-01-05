@@ -1,3 +1,6 @@
+<div class="container">
+<form novalidate #f="ngForm">
+
 <div style="text-align:left;padding:8px;" *ngIf="product">
   <div>
     <label for="id">ID: </label><br />
@@ -15,4 +18,8 @@
     <label for="name">Extra: </label><br />
     <input id="name" [(ngModel)]="product.extra" placeholder="Extra" />
   </div>
+</div>
+
+
+</form>
 </div>
