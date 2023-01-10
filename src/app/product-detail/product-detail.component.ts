@@ -78,6 +78,6 @@ export class ProductDetailComponent implements AfterViewInit, OnInit {
     if (!this.form) {
       return {};
     }
-    return { ...this.product, ...this.form.value };
+    return { ...this.product };
   }
 }
