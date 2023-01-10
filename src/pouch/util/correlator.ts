@@ -3,7 +3,7 @@ export interface Correlations {
 }
 
 export class Correlator {
-  constructor(public correlations: Correlations) {
+  constructor(private correlations: Correlations) {
     this.correlations = correlations;
   }
 
@@ -15,12 +15,12 @@ export class Correlator {
         affected: {
           leveled: {},
           named: {},
-          sorted: {},
+          sorted: [],
         },
         affectors: {
           leveled: {},
           named: {},
-          sorted: {},
+          sorted: [],
         },
         sequence: {
           leveled: {},
@@ -35,7 +35,7 @@ export class Correlator {
         dependencies = ['_no_dependency'];
       }
 
-      me.diveDownNode(aName, aName, dependencies, process);
+      me.getNodeDependencies(aName, aName, dependencies, process);
     }
 
     me.buildUp(process);
@@ -46,7 +46,7 @@ export class Correlator {
     };
   }
 
-  diveDownNode(
+  getNodeDependencies(
     root: string,
     name: string,
     dependencies: string[],
@@ -66,22 +66,18 @@ export class Correlator {
         continue;
       }
 
-      process.affectors.named[aDependency] =
-        process.affectors.named[aDependency] || {};
+      process.affectors.named[aDependency] = process.affectors.named[aDependency] || {};
       process.affectors.named[aDependency][root] = true;
 
-      process.affectors.leveled[aDependency] =
-        process.affectors.leveled[aDependency] || {};
-      process.affectors.leveled[aDependency][level] =
-        process.affectors.leveled[aDependency][level] || {};
+      process.affectors.leveled[aDependency] = process.affectors.leveled[aDependency] || {};
+      process.affectors.leveled[aDependency][level] = process.affectors.leveled[aDependency][level] || {};
       process.affectors.leveled[aDependency][level][root] = true;
 
       process.affected.named[root] = process.affected.named[root] || {};
       process.affected.named[root][aDependency] = true;
 
       process.affected.leveled[root] = process.affected.leveled[root] || {};
-      process.affected.leveled[root][level] =
-        process.affected.leveled[root][level] || {};
+      process.affected.leveled[root][level] = process.affected.leveled[root][level] || {};
       process.affected.leveled[root][level][aDependency] = true;
 
       if (process.correlations[aDependency]) {
@@ -89,7 +85,7 @@ export class Correlator {
 
         loops[aDependency] = process.correlations[aDependency];
 
-        this.diveDownNode(
+        this.getNodeDependencies(
           root,
           aDependency,
           loops[aDependency],
