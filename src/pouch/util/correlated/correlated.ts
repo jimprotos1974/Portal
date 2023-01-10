@@ -1,10 +1,10 @@
-import { Correlations } from '../correlator';
 import { Correlator } from '../correlator';
 
 export class Correlated {	
   data: any;
   executionParams: any;
-  correlations: any;
+
+  private correlations: any;
 
 	constructor(data:any = {}, executionParams:any = {}) {
 		this.data            = data;
@@ -15,7 +15,7 @@ export class Correlated {
 	
 	decodeCorrelations(){
 		let me              = this,
-			data: any         = me.data || {},
+			data              = me.data || {},
 			correlations: any = {};
 
 		for (let aKey in data){

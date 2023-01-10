@@ -8,7 +8,7 @@ export class Calculator extends Correlated {
 	}
 	
 	applyByKey(key:string, executionMeta:any){
-		let me   = this,
+		let me = this,
 			data = me.getDataByKey(key);
 
 		return me.doApply(data, key, executionMeta);
