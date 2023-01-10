@@ -61,6 +61,8 @@ export class ProductDetailComponent implements AfterViewInit, OnInit {
 
       this.calculator.trigger(key!, null);
       this.validator.trigger(key!, null);
+
+      console.log(this.validator);
     });
 
     let entity = new ProductEntity(this.api);
