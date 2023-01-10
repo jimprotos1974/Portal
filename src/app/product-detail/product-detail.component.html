@@ -23,7 +23,7 @@
     <label>Discount %: </label><br />
     <input name="discountPercentage" [(ngModel)]="product.discountPercentage" placeholder="Discount Percentage" class="form-control"/>
   </div>
-  <div class="form-group" [ngStyle]="validator.reported.rating && {'background-color':'red'} || null">
+  <div class="form-group" [ngStyle]="validator.reported.rating ? {'background-color':'red'} : null">
     <label>Rating: </label><br />
     <input name="rating" [(ngModel)]="product.rating" placeholder="Rating" class="form-control" disabled/>
   </div>
