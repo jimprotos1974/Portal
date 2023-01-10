@@ -15,9 +15,21 @@
     <label>Extra: </label><br />
     <input name="extra" [(ngModel)]="product.extra" placeholder="Extra" class="form-control"/>
   </div>
+  <div class="form-group" [ngClass]="{}">
+    <label>Price: </label><br />
+    <input name="price" [(ngModel)]="product.price" placeholder="Price" class="form-control"/>
+  </div>
+  <div class="form-group" [ngClass]="{}">
+    <label>Discount %: </label><br />
+    <input name="discountPercentage" [(ngModel)]="product.discountPercentage" placeholder="Discount Percentage" class="form-control"/>
+  </div>
+  <div class="form-group" [ngClass]="{}">
+    <label>Rating: </label><br />
+    <input name="rating" [(ngModel)]="product.rating" placeholder="Rating" class="form-control" disabled/>
+  </div>
 </div>
 
-<pre>{{f.value | json}}</pre>
+<pre>{{summarize()|json}}</pre>
 
 </form>
 

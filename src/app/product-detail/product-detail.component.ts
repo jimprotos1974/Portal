@@ -5,6 +5,10 @@ import { ProductInterface } from '../../code/model/product';
 import { Product as ProductModel } from '../../code/model/product';
 import { Product as ProductEntity } from '../../code/entity/product';
 import { Calculator } from '../../pouch/util/correlated/calculator';
+import { Validator } from '../../pouch/util/correlated/validator';
+
+import { calculation } from '../../code/settings/correlation/product/calculation';
+import { validation } from '../../code/settings/correlation/product/validation';
 
 @Component({
   selector: 'app-product-detail',
@@ -17,6 +21,7 @@ export class ProductDetailComponent implements AfterViewInit, OnInit {
   product: ProductInterface | undefined;
   lastValues: any = {};
   calculator!: Calculator;
+  validator!: Validator;
 
   @ViewChild('f') form: any;
 
@@ -28,33 +33,25 @@ export class ProductDetailComponent implements AfterViewInit, OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.lastValues = this.form.value;
 
-    this.calculator = new Calculator(
-      {
-        extra: {
-          path: 'extra',
-          func: function (calculator: any, rule: any, params: any, meta: any) {
-            console.log(calculator);
-            console.log(rule);
-            console.log(params.form.value);
+    this.calculator = new Calculator(calculation, {
+      form: this.form,
+    });
 
-            /*params.form.control.patchValue({
-            "extra": "ddp"
-          });*/
-          },
-          dependencies: ['description', 'id'],
-        },
-      },
-      {
-        form: this.form,
-      }
-    );
+    this.validator = new Validator(validation, {
+      form: this.form,
+    });
 
     this.form.valueChanges.subscribe((values: any) => {
       const key = Object.keys(values).find(
         (k) => values[k] != this.lastValues[k]
       );
-      const oldValue = key ? this.lastValues[key] : null;
-      const newValue = key ? values[key] : null;
+
+      if (!key) {
+        return;
+      }
+
+      const oldValue = this.lastValues[key];
+      const newValue = values[key];
 
       this.lastValues = { ...values };
 
@@ -63,6 +60,7 @@ export class ProductDetailComponent implements AfterViewInit, OnInit {
       );
 
       this.calculator.trigger(key!, null);
+      this.validator.trigger(key!, null);
     });
 
     let entity = new ProductEntity(this.api);
@@ -72,5 +70,12 @@ export class ProductDetailComponent implements AfterViewInit, OnInit {
 
       this.product = new ProductModel(response).convert();
     });
+  }
+
+  summarize() {
+    if (!this.form) {
+      return {};
+    }
+    return { ...this.product, ...this.form.value };
   }
 }
