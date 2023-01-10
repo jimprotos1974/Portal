@@ -6,19 +6,12 @@ import { Product as ProductModel } from '../../code/model/product';
 import { Product as ProductEntity } from '../../code/entity/product';
 import { Calculator } from '../../pouch/util/correlated/calculator';
 
-import {
-  FormsModule,
-  FormGroup,
-  FormControl
-} from '@angular/forms';
-
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
 })
-
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements AfterViewInit, OnInit {
   id?: number | undefined;
   fb: any;
   product: ProductInterface | undefined;
@@ -27,9 +20,7 @@ export class ProductDetailComponent implements OnInit {
 
   @ViewChild('f') form: any;
 
-  constructor(private route: ActivatedRoute, private api: DummyApi) {
-
-  }
+  constructor(private route: ActivatedRoute, private api: DummyApi) {}
 
   ngOnInit() {}
 
@@ -82,5 +73,4 @@ export class ProductDetailComponent implements OnInit {
       this.product = new ProductModel(response).convert();
     });
   }
-
 }

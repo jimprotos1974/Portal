@@ -1,22 +1,24 @@
 <div class="container">
+
 <form novalidate #f="ngForm">
 
 <div style="text-align:left;padding:8px;" *ngIf="product">
   <div class="form-group" [ngClass]="{}">
-    <label for="id">ID: </label><br />
-    <input id="id" [(ngModel)]="product.id" placeholder="ID" class="form-control"/>
+    <label>ID: </label><br />
+    <input name="id" [(ngModel)]="product.id" placeholder="ID" class="form-control"/>
   </div>
   <div class="form-group" [ngClass]="{}">
-    <label for="name">Name: </label><br />
-    <input id="name" [(ngModel)]="product.description" placeholder="Description" class="form-control"/>
+    <label>Name: </label><br />
+    <input name="description" [(ngModel)]="product.description" placeholder="Description" class="form-control"/>
   </div>
   <div class="form-group" [ngClass]="{}">
-    <label for="name">Extra: </label><br />
-    <input id="name" [(ngModel)]="product.extra" placeholder="Extra" class="form-control"/>
+    <label>Extra: </label><br />
+    <input name="extra" [(ngModel)]="product.extra" placeholder="Extra" class="form-control"/>
   </div>
 </div>
 
-<pre>{{f.value.product | json}}</pre>
+<pre>{{f.value | json}}</pre>
 
 </form>
+
 </div>
