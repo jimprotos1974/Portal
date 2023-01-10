@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
     username: string;
     password: string;
   } = {
-    username: 'ddp',
-    password: '!123456789aA',
+    username: '',
+    password: '',
   };
 
   constructor(private user: User) {
@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.credentials = {
-      username: 'ddp',
-      password: '!123456789aA',
+      username: '',
+      password: '',
     };
   }
 
